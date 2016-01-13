@@ -7,13 +7,15 @@
 @import "base";
 
 body{
-#title-header{
-	text-align: center;
-}
-#header{
-	text-align:center;
-}
-#input-box{
-	text-align:center;
-}
+	.container{
+		padding-top:2%;
+		#title-header{
+			text-align: center;
+		}
+		#header{
+			text-align:center;
+		}
+	}
+
+
 }

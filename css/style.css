@@ -1,12 +1,12 @@
 /* line 10, ../compass/sass/style.scss */
-body #title-header {
+body .container {
+  padding-top: 2%;
+}
+/* line 12, ../compass/sass/style.scss */
+body .container #title-header {
   text-align: center;
 }
-/* line 13, ../compass/sass/style.scss */
-body #header {
-  text-align: center;
-}
-/* line 16, ../compass/sass/style.scss */
-body #input-box {
+/* line 15, ../compass/sass/style.scss */
+body .container #header {
   text-align: center;
 }
