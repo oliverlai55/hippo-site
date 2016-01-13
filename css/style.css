@@ -1,4 +1,12 @@
-/* line 9, ../../compass/sass/style.scss */
-body {
-  color: black;
+/* line 10, ../compass/sass/style.scss */
+body #title-header {
+  text-align: center;
+}
+/* line 13, ../compass/sass/style.scss */
+body #header {
+  text-align: center;
+}
+/* line 16, ../compass/sass/style.scss */
+body #input-box {
+  text-align: center;
 }
