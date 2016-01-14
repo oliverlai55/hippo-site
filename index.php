@@ -1,13 +1,13 @@
 <?php
 
-	include('inc/db_connect.php');
+include('inc/db_connect.php');
 
 	// print "<h1>Home Page</h1>";
 
-	$results = DB::query("SELECT * FROM users");
-	foreach($results as $result){
+$results = DB::query("SELECT * FROM users");
+foreach($results as $result){
 		// print_r($result);
-	}
+}
 ?>
 
 <!DOCTYPE html>
@@ -40,20 +40,40 @@
 				<h2>Join the millions fighting for Hippos today!</h2>
 			</div>
 		</div>
-		<div id="input-box" class="row col-sm-offset-4 col-sm-8">
-			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Full Name" aria-describedby="basic-addon2">
+		<form class="form-horizontal">
+			<div class="control-group">
+				<label class="control-label" for="inputEmail">Full Name</label>
+				<div class="controls">
+					<input type="text" id="inputEmail" placeholder="Full Name">
+				</div>
 			</div>
-			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon2">
+			<div class="control-group">
+				<label class="control-label" for="inputEmail">Email</label>
+				<div class="controls">
+					<input type="text" id="inputEmail" placeholder="Email">
+				</div>
 			</div>
-			<div class="input-group">
-			<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon2">
+			<div class="control-group">
+				<label class="control-label" for="inputEmail">Username</label>
+				<div class="controls">
+					<input type="text" id="inputEmail" placeholder="Username">
+				</div>
 			</div>
-			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon2">
+			<div class="control-group">
+				<label class="control-label" for="inputPassword">Password</label>
+				<div class="controls">
+					<input type="password" id="inputPassword" placeholder="Password">
+				</div>
 			</div>
-		</div>
+			<div class="control-group">
+				<div class="controls">
+					<label class="checkbox">
+						<input type="checkbox"> Remember me
+					</label>
+					<button type="submit" class="btn">Sign in</button>
+				</div>
+			</div>
+		</form>
 	</div>
 </body>
 </html>
