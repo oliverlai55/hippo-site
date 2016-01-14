@@ -40,7 +40,7 @@ include('inc/head.php');
 
 <div class="container">
 	<div class="row">
-		<h2>Login</h2>
+		<h2 id="login">Login</h2>
 	</div>
 	<div class="row">
 	<?php

@@ -10,3 +10,8 @@ body .container #title-header {
 body .container #header {
   text-align: center;
 }
+
+/* line 24, ../compass/sass/style.scss */
+#login {
+  text-align: center;
+}
