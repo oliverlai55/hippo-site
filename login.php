@@ -50,6 +50,13 @@ include('inc/head.php');
 	?>
 	</div>
 	<form method="post" action="login.php">
+		<div class="row">
+			<input class="form-control" type="text" name="userName" placeholder="Username">
+		</div>
+		<div class="row">
+			<input class="form-control" type="password" name="password" placeholder="Password">
+			<a href="/index.php"><input class="btn btn-primary" type="button" value="Cancel"></a>
+		</div>
 	</form>
 </div>
 	
