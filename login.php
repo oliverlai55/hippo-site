@@ -1,6 +1,10 @@
 <?php
 	include 'inc/db_connect.php';
 
+	if($_SESSION['username']){
+		header('Location: index.php');
+	}
+	
 	if(isset($_POST['userName'])){
 		$username = $_POST['userName'];
 		$password = $_POST['password'];
