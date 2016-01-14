@@ -69,6 +69,7 @@ foreach($results as $result){
 				</div>
 			</div>
 		</form>
+		<?php include('inc/footer.php');?>
 	</div>
 </body>
 </html>
