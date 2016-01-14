@@ -4,8 +4,7 @@ include('inc/db_connect.php');
 
 $username = $_POST['username'];
 $password = $_POST['password'];
-$email = $_POST['email'];
-$name = $_POST['name'];
+
 
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 	

@@ -4,6 +4,7 @@ include('inc/db_connect.php');
 
 $username = $_POST['inputUsername'];
 $password = $_POST['inputPassword'];
+$hased_password = password_hash()
 
 //Get the hash from the DB
 $results = DB::query("SELECT * FROM users WHERE username=%s", $username); //some command
