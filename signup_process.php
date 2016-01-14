@@ -17,7 +17,7 @@ $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 		));
 	}catch(MeekroDBException $e){
-		header('Location: /signup.php?error=yes')
+		header('Location: /signup.php?error=yes');
 		exit;
 	}
 
