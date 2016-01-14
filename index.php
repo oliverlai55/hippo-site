@@ -24,13 +24,7 @@ foreach($results as $result){
 </head>
 <body>
 	<div class="container">
-		<div class="row col-sm-12">
-			<div class="btn btn-primary col-sm-1">Home</div>
-			<div class="col-sm-5"></div>
-			<div class="col-sm-4"></div>
-			<div class="btn btn-primary col-sm-1">Signup</div>
-			<div class="btn btn-primary col-sm-1">Log In</div>
-		</div>
+		<?php include('inc/header.php');?>
 		<div class="row">
 			<div id="title-header" class="col-sm-12">
 				<h1>The Hippo Guardian</h1>
