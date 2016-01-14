@@ -31,12 +31,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="stylesheet" href="">
+<?php
+include('inc/head.php');
+?>
+
 </head>
 <body>
+
+<div class="container">
+	<div class="row">
+		<h2>Login</h2>
+	</div>
+	<div class="row">
+	<?php
+		if($_GET['login'] == 'failure'){
+			print "<h4>Your login information does not match any record in our system. Please try again.</h4>";
+		}
+	?>
+	</div>
+	<form method="post" action="login.php">
+	</form>
+</div>
 	
 </body>
 </html>
