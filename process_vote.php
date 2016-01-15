@@ -8,8 +8,8 @@
 	}
 
 	DB::insert('post_votes', array(
-		'post_id' => $_GET['post_id'],
-		'voter_user_id' => $_GET['voter_user_id'],
+		'pid' => $_GET['pid'],
+		'uid' => $_GET['uid'],
 		'vote' => $vote
 		));
 	header('Location: index.php');
