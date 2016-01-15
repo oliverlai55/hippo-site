@@ -8,6 +8,11 @@ $(document).ready(function(){
 			data: {uid:uid},
 			success: function(result){
 				console.log(result);
+				if(result == "Success!"){
+					var buttonToChange = $("[uid="+uid+"]");
+					buttonToChange.removeClass('btn-primary');
+					buttonToChange.addClass('btn-default');
+				}
 			}
 		})
 	})
