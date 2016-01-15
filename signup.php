@@ -1,4 +1,4 @@
-<? php
+<?php
 	include 'inc/db_connect.php';
 
 	if($_SESSION)['username']){
@@ -22,6 +22,12 @@
 	if(!$result){
 		$result = DB::query("INSERT INTO users (name,email,username,password) VALUES
 			('" . $fullName . "','" . $email . "','" . $username . "','" . $hashed_password . "')" );
+		$_SESSION['username'] = $username;
+		$_SESSION['uid'] = DB::insertId();
+		header('Location: /index.php');
+	}else{
+		header('Location: /signup.php?register=failure');
 	}
+	
 	}
 ?>
