@@ -8,8 +8,10 @@ if($_GET['logout']){
 	header('Location: index.php');
 }
 
-if($_SESSION['username']){
+if(isset($_SESSION['username'])){
 	$results = DB::query("SELECT * FROM posts ORDER BY timestamp desc limit 30");
+}else{
+	print $_SESSION['uid'];
 }
 
 

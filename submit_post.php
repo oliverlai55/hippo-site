@@ -5,8 +5,7 @@
 		DB::insert('posts', array(
 
 			'uid' => $_SESSION['uid'],
-			'content' => $_POST['newPost'],
-			'timestamp' => time()
+			'content' => $_POST['newPost']
 
 		));
 	}catch(MeekroDBException $e){
@@ -14,8 +13,6 @@
 		exit;
 	}
 
-	$_SESSION['username'] = $username;
-	$_SESSION['uid'] = DB::insertId();
 	header('Location: /?callback=post');
 	exit;
 ?>
