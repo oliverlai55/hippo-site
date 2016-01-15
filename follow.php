@@ -23,7 +23,7 @@
 				foreach($result as $user){
 					print '<div class="row">';
 						print '<div class="user">'.$user['username'].'</div>';
-						print '<div class="follow-user"><button type="button class="btn btn-primary" uid='.$user['id'].'>;
+						print '<div class="follow-user"><button type="button" class="btn btn-primary" uid='.$user['id'].'>;
 					print '</div>';
 				}
 			?>
