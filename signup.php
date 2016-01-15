@@ -12,7 +12,7 @@ if(isset($_POST['userName'])){
 
 	$fullName = $_POST['name'];
 	$email = $_POST['email'];
-	$username = $_POST['username'];
+	$username = $_POST['userName'];
 	$hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 		//User submitted something
