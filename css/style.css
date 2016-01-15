@@ -15,3 +15,66 @@ body .container #header {
 #login {
   text-align: center;
 }
+
+/* line 30, ../compass/sass/style.scss */
+#signin {
+  text-align: center;
+  font-family: Impact;
+}
+
+/* line 35, ../compass/sass/style.scss */
+.container .row {
+  margin: 10px;
+}
+
+/* line 38, ../compass/sass/style.scss */
+.btn {
+  margin-right: 10px;
+}
+
+/* line 41, ../compass/sass/style.scss */
+.red-text {
+  color: red;
+}
+
+/* line 48, ../compass/sass/style.scss */
+#home-link:hover {
+  color: black;
+  text-decoration: none;
+}
+
+/* line 55, ../compass/sass/style.scss */
+.post-container {
+  margin: 15px;
+  padding: 10px;
+  border-radius: 10px;
+}
+/* line 61, ../compass/sass/style.scss */
+.post-container .user {
+  display: inline;
+  margin: 10px;
+}
+/* line 65, ../compass/sass/style.scss */
+.post-container .post-time {
+  display: inline;
+  margin: 10px;
+}
+/* line 69, ../compass/sass/style.scss */
+.post-container .post-content {
+  margin: 10px;
+}
+/* line 73, ../compass/sass/style.scss */
+.post-container .vote-container {
+  float: right;
+  position: relative;
+  top: -45px;
+  text-align: center;
+}
+/* line 81, ../compass/sass/style.scss */
+.post-container .vote-container a:hover {
+  text-decoration: none;
+}
+/* line 85, ../compass/sass/style.scss */
+.post-container .vote-container span {
+  display: block;
+}
