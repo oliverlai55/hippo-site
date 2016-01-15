@@ -2,12 +2,17 @@
 
 include('inc/db_connect.php');
 
-	// print "<h1>Home Page</h1>";
+if($_GET['logout']){
 
-$results = DB::query("SELECT * FROM users");
-foreach($results as $result){
-		// print_r($result);
+	session_destroy();
+	header('Location: index.php');
 }
+
+if($_SESSION)['username']{
+	$results = DB::query("SELECT * FROM posts ORDER BY timestamp desc limit 30");
+}
+
+
 ?>
 
 <!DOCTYPE html>
