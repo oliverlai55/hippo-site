@@ -1,4 +1,4 @@
-<?php
+<?php 
 include 'inc/db_connect.php';
 
 if($_SESSION['username']){
