@@ -1,12 +1,32 @@
-<?php include 'inc/db_connect.php';?>
+<?php 
+	include 'inc/db_connect.php';
 
-<?php
-	
-	$results = DB::query(
-		"SELECT users.id, users.username,");
+	//All users
+	$results = DB::query("SELECT * FROM users WHERE uid !=".$_SESSION['uid']);
 
+	$results_following = DB::query("SELECT distinct(user_id_to_follow) FROM following
+		WHERE following.user_id=%i" , $_SESSION['uid']);
 
+	$last = count($results_following);
+
+	$following_array = [];
+	if($last > 0){
+		foreach($results_following as $following){
+			$following_array[] = $following['user_id_to_follow'];
+		}
+	}
+
+//Process follow
+	if($_POST['follow_type'] == 'followed'){
+		DB::insert('following', array(
+			'user_id' => $_SESSION['uid'],
+			'user_id_to_follow' => $_POST['uid']
+			));
+	//if the user is following, then clicked to unfollow. Delete the relationship
+	}
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
