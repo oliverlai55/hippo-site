@@ -8,12 +8,35 @@ if($_GET['logout']){
 	header('Location: index.php');
 }
 
-if(isset($_SESSION['username'])){
+if(!isset($_SESSION['username'])){
 	$results = DB::query("SELECT * FROM posts
 		LEFT JOIN users ON posts.uid = users.uid
-		ORDER BY timestamp desc limit 30");
+		ORDER BY posts.timestamp desc limit 30");
 }else{
-	print $_SESSION['uid'];
+	$results_following = DB::query("SELECT distinct(user_id_to_follow) FROM following following
+		WHERE following.user_id = %i" , $_SESSION['uid']);
+
+	$last = count($results_following);
+
+	if($last > 0){
+		$i = 0;
+		$following_array = '';
+		foreach($results_following as $following){
+			$i++;
+			$following_array .= $following['user_id_to_follow'];
+			if($i != $last){$following_array .= ",";} 
+		}
+
+		$posts = DB::query("SELECT * FROM posts
+			LEFT JOIN users on posts.uid=user.id
+			WHERE uid IN ($following_array)");
+	}else{
+		$posts = DB::query(
+			"SELECT posts.content, posts.timestamp, users.username FROM posts
+				LEFT JOIN users on posts.uid=users.id
+				ORDER BY posts.timestamp desc limit 30");
+
+	}
 }
 
 
