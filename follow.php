@@ -4,8 +4,9 @@
 	//All users
 	$results = DB::query("SELECT * FROM users WHERE uid !=".$_SESSION['uid']);
 
-	$results_following = DB::query("SELECT distinct(user_id_to_follow) FROM following
+	$results_following = DB::query("SELECT distinct(user_id_to_follow) FROM following following
 		WHERE following.user_id=%i" , $_SESSION['uid']);
+foreach($results_following)
 
 	$last = count($results_following);
 
@@ -16,14 +17,6 @@
 		}
 	}
 
-//Process follow
-	if($_POST['follow_type'] == 'followed'){
-		DB::insert('following', array(
-			'user_id' => $_SESSION['uid'],
-			'user_id_to_follow' => $_POST['uid']
-			));
-	//if the user is following, then clicked to unfollow. Delete the relationship
-	}
 ?>
 
 
