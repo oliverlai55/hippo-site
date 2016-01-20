@@ -36,49 +36,6 @@ if(!$_SESSION['username']){
 
 
 
-
-
-
-	$posts = DB::query(
-		"SELECT posts.content, posts.timestamp, users.username FROM posts
-			LEFT JOIN users on posts.uid = users.id
-			ORDER BY posts.timestamp desc limit 30");
-}else{
-	$results_following = DB::query("SELECT distinct(user_id_to_follow) FROM following following
-		WHERE following.user_id = %i" , $_SESSION['uid']);
-
-	$last = count($results_following);
-
-	if($last > 0){
-		$i = 0;
-		$following_array = '';
-		foreach($results_following as $following){
-			$i++;
-			$following_array .= $following['user_id_to_follow'];
-			if($i != $last){$following_array .= ",";} 
-		}
-
-		$posts = DB::query("SELECT * FROM posts
-			LEFT JOIN users on posts.uid=users.id
-			WHERE uid IN ($following_array)");
-	}else{
-		$posts = DB::query(
-			"SELECT posts.content, posts.timestamp, users.username FROM posts
-				LEFT JOIN users on posts.uid=users.id
-				ORDER BY posts.timestamp desc limit 30");
-
-	}
-}
-
-//printing them off
-	foreach($posts as $post){
-					  	print '<div class="row home-post">
-						  	<div class="col-md-12 text-center">'.$post['content'].' -- '.$post['username'].'</div>
-						  	<div class="col-md-12 text-center">'.$post['timestamp'].'</div>';
-						print '</div>';
-	}
-
-
 ?>
 
 <!DOCTYPE html>
@@ -98,9 +55,17 @@ if(!$_SESSION['username']){
 			</div>
 		</div>
 		<?php
-		if(isset($_SESSION['username'])){
-			foreach($results as $result){
-				$user = DB::query("SELECT * FROM users WHERE uid=%i",$result['uid']);
+		if((isset($_SESSION['username']))&&(sizeof($posts) > 0)){
+			foreach($posts as $post){
+				$votes = DB::query("SELECT * FROM post_votes WHERE pid=%i",$post['pid']);
+				$post_votes = 0;
+				if(sizeof($votes) !== 0){
+					foreach($votes as $vote){
+						$post_votes += $vote['vote'];
+					}
+				}
+
+				
 				print "<div class='post-container'><div class='user'><a href='/user.php?user=". $result['uid'] ."'>@" . $user[0]['userName'] . "</a></div>";
 				print "<div class='post-content'>" . $result['content'] . "</div>";
 				print "<div class='post-time'>". $result['timestamp'] ."</div>";
