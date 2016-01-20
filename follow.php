@@ -6,7 +6,9 @@
 
 	$results_following = DB::query("SELECT distinct(user_id_to_follow) FROM following following
 		WHERE following.user_id=%i" , $_SESSION['uid']);
-foreach($results_following)
+	foreach($results_following as $user){
+		$users[] = $user;
+	}
 
 	$last = count($results_following);
 
@@ -18,8 +20,6 @@ foreach($results_following)
 	}
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html>
@@ -43,10 +43,9 @@ foreach($results_following)
 	    		$button_class = 'btn-primary';
 
 	    	}
-	    	print '<div class="user">';
-	    		// print '<div class="user-name col-md-6 text-left">'.$user['realname'].'</div>';
-	    		print '<div class="user-hippo col-md-12 text-left">'.$user['username'].'</div>';
-	    		print '<button type="button" class="btn '.$button_class.' col-md-2 text-left follow-button" data-follow="'.$follow.'" uid='.$user['id'].'>'.$button_text.'</button>';
+	    	print '<div class="row">';
+	    		print '<div class="user col-xs-2 col-xs-offset-3 text-left"><a href="/user.php?user='. $user['uid'] .'">@'.$user['username'].'</a></div>';
+	    		print '<button type="button" class="btn '.$button_class.' col-xs-3 col-xs-offset-1 text-left follow-button" data-follow="'.$follow.'" uid='.$user['uid'].'>'.$button_text.'</button>';
 	    	print '</div>';
 	    }
 	    ?>
