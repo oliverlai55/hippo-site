@@ -29,7 +29,7 @@ if(!$_SESSION['username']){
 				ORDER BY posts.timestamp desc");
 		}else{
 			$posts = DB::query(
-				"SELECT posts.content, posts.timestamp, users.username FROM posts
+				"SELECT posts.content, posts.timestamp, users.username, posts.id AS pid FROM posts
 					LEFT JOIN users on posts.uid=users.uid
 					ORDER BY posts.timestamp desc limit 30");
 		}
@@ -67,9 +67,9 @@ if(!$_SESSION['username']){
 				print "<div class='post-container'><div class='user'><a href='/user.php?user=". $post['uid'] ."'>@" . $post['userName'] . "</a></div>";
 				print "<div class='post-content'>" . $post['content'] . "</div>";
 				print "<div class='post-time'>". $post['timestamp'] ."</div>";
-				print "<div class='vote-container'><a href='process_vote.php?pid=".$post['pid']."&uid=".$post['uid']."&vote=up'><span class='glyphicon glyphicon-menu-up up-vote'></span></a>";
+				print "<div class='vote-container'><a href='process_vote.php?pid=".$post['pid']."&uid=".$_SESSION['uid']."&vote=up'><span class='glyphicon glyphicon-menu-up up-vote'></span></a>";
 				print "<span class='votes'>".$post_votes ."</span>";
-				print "<a href='process_vote.php?pid=".$post['id']."&uid=".$post['uid']."&vote=down'><span class='glyphicon glyphicon-menu-down down-vote'></span></a></div>";
+				print "<a href='process_vote.php?pid=".$post['pid']."&uid=".$_SESSION['uid']."&vote=down'><span class='glyphicon glyphicon-menu-down down-vote'></span></a></div>";
 				print "</div>";
 			}
 		}else{
