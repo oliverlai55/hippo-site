@@ -6,7 +6,7 @@ if($_SESSION['username']){
 }
 
 if(isset($_POST['userName'])){
-	if($_POST['password'] !== $_POST['password-confirm']){
+	if($_POST['password'] == $_POST['password-confirm']){
 		$fullName = $_POST['name'];
 		$email = $_POST['email'];
 		$username = $_POST['userName'];
@@ -17,7 +17,7 @@ if(isset($_POST['userName'])){
 		$result = DB::query("SELECT * FROM users WHERE username = '" . $_POST['userName']."' OR email = '" . $email . "'");
 		if(!$result){
 			$result = DB::query("INSERT INTO users (name,email,username,password) VALUES
-			('" . $fullName . "','" . $email . "','" . $username . "','" . $hashed_password . "')" );
+				('" . $fullName . "','" . $email . "','" . $username . "','" . $hashed_password . "')" );
 			$_SESSION['username'] = $username;
 			$_SESSION['uid'] = DB::insertId();
 			header('Location: /index.php');
@@ -27,8 +27,7 @@ if(isset($_POST['userName'])){
 	}else{
 		header('Location: /signup.php?password=fail');
 	}
-
-
+}
 ?>
 
 <!DOCTYPE html>
@@ -69,6 +68,9 @@ if(isset($_POST['userName'])){
 			<div class="row">
 				<input class="form-control" type="text" name="userName" placeholder="Username...">
 			</div>
+			<?php if($_GET['password'] == 'fail'){
+				print "<h6 class='red-text'> &nbsp &nbspThe passwords you entered do not match.</h6>";
+			}?>
 			<div class="row">
 				<input class="form-control" type="password" name="password" placeholder="Password...">
 			</div>
