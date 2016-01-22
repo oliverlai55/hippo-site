@@ -25,7 +25,7 @@
 	<?php include 'inc/head.php'; ?>
 </head>
 <body>
-	<?php include 'header.php'; ?>
+	<?php include 'inc/header.php'; ?>
 	<div class="container">
 		<div class="row">
 			<form method="post" action="update_image.php">
